@@ -27,7 +27,7 @@ class SwftoolsDev < Formula
     inreplace "lib/as3/registry.h" do |s|
       s.gsub! /^classinfo_t voidclass;/, "// classinfo_t voidclass;"
     end
-    inreplace "lib/as3/registry.h", "type_t point_type;", "extern type_t point_type;"
+    inreplace "lib/gfxpoly/poly.h", "type_t point_type;", "extern type_t point_type;"
     inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
     inreplace "src/swfc-feedback.h", "int line;", "extern int line;"
     inreplace "src/swfc-feedback.h", "int column;", "extern int column;"
