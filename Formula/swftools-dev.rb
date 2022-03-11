@@ -18,10 +18,7 @@ class SwftoolsDev < Formula
   depends_on "giflib"
   depends_on "jpeg"
   depends_on "lame"
-
-  on_linux do
-    depends_on "fontconfig"
-  end
+  depends_on "fontconfig"
 
   def install
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos1>=0)", "if(pos1>=(char *)0)"

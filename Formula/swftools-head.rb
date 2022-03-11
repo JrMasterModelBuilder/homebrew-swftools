@@ -10,10 +10,7 @@ class SwftoolsHead < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
-
-  on_linux do
-    depends_on "fontconfig"
-  end
+  depends_on "fontconfig"
 
   def install
     system "./configure", "--prefix=#{prefix}"

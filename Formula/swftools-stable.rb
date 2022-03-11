@@ -18,10 +18,7 @@ class SwftoolsStable < Formula
   depends_on "giflib"
   depends_on "jpeg"
   depends_on "lame"
-
-  on_linux do
-    depends_on "fontconfig"
-  end
+  depends_on "fontconfig"
 
   def install
     inreplace "configure", "fftw_malloc", "fftwf_malloc"
