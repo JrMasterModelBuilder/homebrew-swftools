@@ -19,6 +19,10 @@ class SwftoolsStable < Formula
   depends_on "jpeg"
   depends_on "lame"
 
+  on_linux do
+    depends_on "fontconfig"
+  end
+
   def install
     inreplace "configure", "fftw_malloc", "fftwf_malloc"
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos1>=0)", "if(pos1>=(char *)0)"

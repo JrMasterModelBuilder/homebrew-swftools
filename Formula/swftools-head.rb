@@ -11,6 +11,10 @@ class SwftoolsHead < Formula
   depends_on "giflib"
   depends_on "jpeg"
 
+  on_linux do
+    depends_on "fontconfig"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
