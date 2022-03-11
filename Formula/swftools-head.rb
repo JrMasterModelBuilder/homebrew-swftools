@@ -13,7 +13,7 @@ class SwftoolsHead < Formula
   depends_on "fontconfig"
 
   def install
-    rm "lib/lame"
+    rmdir "lib/lame"
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
     inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
