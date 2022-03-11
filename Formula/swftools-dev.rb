@@ -52,9 +52,9 @@ class SwftoolsDev < Formula
   end
 
   test do
-    system "#{bin}/png2swf", "-z", "swftools_test_png2swf.swf", test_fixtures("test.png")
-    system "#{bin}/gif2swf", "-z", "swftools_test_gif2swf.swf", test_fixtures("test.gif")
-    system "#{bin}/jpeg2swf", "-z", "swftools_test_jpeg2swf.swf", test_fixtures("test.jpg")
-    system "#{bin}/wav2swf", "swftools_test_wav2swf.swf", test_fixtures("test.wav")
+    system "#{bin}/png2swf", "-z", "-o", "swftools_test_png2swf.swf", test_fixtures("test.png")
+    system "#{bin}/gif2swf", "-z", "-o", "swftools_test_gif2swf.swf", test_fixtures("test.gif")
+    system "#{bin}/jpeg2swf", "-z", "-o", "swftools_test_jpeg2swf.swf", test_fixtures("test.jpg")
+    system "#{bin}/wav2swf", "-o", "swftools_test_wav2swf.swf", test_fixtures("test.wav")
   end
 end
