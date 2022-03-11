@@ -13,11 +13,11 @@ class SwftoolsHead < Formula
   depends_on "fontconfig"
 
   def install
+    inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
       system "perl", "inject-xpdf.pl", "xpdf-3.02.tar.gz"
     end
-    inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     system "make"
     system "make", "install"
     bin.install "src/ttftool"
