@@ -13,6 +13,7 @@ class SwftoolsHead < Formula
   depends_on "fontconfig"
 
   def install
+    inreplace "lib/as3/registry.h", "// static multinames\nclassinfo_t voidclass;", "// static multinames\n// classinfo_t voidclass;"
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
