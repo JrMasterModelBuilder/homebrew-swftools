@@ -44,6 +44,8 @@ class SwftoolsDev < Formula
     inreplace "src/gif2swf.c", "DGifCloseFile(gft);", "int giferr2; DGifCloseFile(gft, &giferr2);"
     inreplace "src/gif2swf.c", "#define MAX_INPUT_FILES", "void PrintGifError(void) { int ret; fprintf(stderr, \"GIF-LIB: %s\\n\", GifErrorString(ret)); }\n#define MAX_INPUT_FILES"
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
+    inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
+    inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"

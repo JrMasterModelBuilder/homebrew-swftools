@@ -14,6 +14,8 @@ class SwftoolsHead < Formula
 
   def install
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
+    inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
+    inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
     system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
       system "perl", "inject-xpdf.pl", "xpdf-3.02.tar.gz"
