@@ -10,6 +10,7 @@ class SwftoolsHead < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
+  depends_on "lame"
   depends_on "fontconfig"
 
   def install
