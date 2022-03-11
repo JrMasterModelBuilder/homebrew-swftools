@@ -22,8 +22,8 @@ class SwftoolsStable < Formula
 
   def install
     inreplace "configure", "fftw_malloc", "fftwf_malloc"
-    inreplace "swfs/Makefile.in", " -o -L $(pkgdatadir)/swfs/default_viewer.swf"
-    inreplace "swfs/Makefile.in", " -o -L $(pkgdatadir)/swfs/default_loader.swf"
+    inreplace "swfs/Makefile.in", " -o -L $(pkgdatadir)/swfs/default_viewer.swf", ""
+    inreplace "swfs/Makefile.in", " -o -L $(pkgdatadir)/swfs/default_loader.swf", ""
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos1>=0)", "if(pos1>=(char *)0)"
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos2>=0)", "if(pos2>=(char *)0)"
     inreplace "lib/jpeg.c", "#define HAVE_BOOLEAN", "#define TRUE (1==1)\n#define FALSE (!TRUE)\n#define HAVE_BOOLEAN"
