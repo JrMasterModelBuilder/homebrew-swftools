@@ -24,7 +24,9 @@ class SwftoolsDev < Formula
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos1>=0)", "if(pos1>=(char *)0)"
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos2>=0)", "if(pos2>=(char *)0)"
     inreplace "lib/jpeg.c", "#define HAVE_BOOLEAN", "#define TRUE (1==1)\n#define FALSE (!TRUE)\n#define HAVE_BOOLEAN"
-    inreplace "lib/as3/registry.h", "// static multinames\nclassinfo_t voidclass;", "// static multinames\n// classinfo_t voidclass;"
+    inreplace "lib/as3/registry.h" do |s|
+      s.gsub! /^classinfo_t voidclass;/, "// classinfo_t voidclass;"
+    end
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(sname))", "int giferr; if ((gft = DGifOpenFileName(sname, &giferr))"
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(s))", "int giferr; if ((gft = DGifOpenFileName(s, &giferr))"
     inreplace "src/gif2swf.c", "DGifCloseFile(gft);", "int giferr2; DGifCloseFile(gft, &giferr2);"
