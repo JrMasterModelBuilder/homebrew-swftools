@@ -17,6 +17,7 @@ class SwftoolsHead < Formula
     chdir "lib/pdf" do
       system "perl", "inject-xpdf.pl", "xpdf-3.02.tar.gz"
     end
+    inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     system "make"
     system "make", "install"
     bin.install "src/ttftool"
