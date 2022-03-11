@@ -29,7 +29,7 @@ class SwftoolsStable < Formula
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(sname))", "int giferr; if ((gft = DGifOpenFileName(sname, &giferr))"
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(s))", "int giferr; if ((gft = DGifOpenFileName(s, &giferr))"
     inreplace "src/gif2swf.c", "DGifCloseFile(gft);", "int giferr2; DGifCloseFile(gft, &giferr2);"
-    inreplace "src/gif2swf.c", "#define MAX_INPUT_FILES", "void PrintGifError(void) { fprintf(stderr, \"GIF-LIB: %s\\n\", GifErrorString()); }\n#define MAX_INPUT_FILES"
+    inreplace "src/gif2swf.c", "#define MAX_INPUT_FILES", "void PrintGifError(void) { int ret; fprintf(stderr, \"GIF-LIB: %s\\n\", GifErrorString(ret)); }\n#define MAX_INPUT_FILES"
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
     system "./configure", "--prefix=#{prefix}"
     system "make"
