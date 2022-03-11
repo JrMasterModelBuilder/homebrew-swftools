@@ -15,6 +15,7 @@ class SwftoolsHead < Formula
   def install
     rm_rf "lib/lame"
     inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
+    inreplace "configure", "$CPPFLAGS -I /usr/", "$CPPFLAGS -I/usr/"
     inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
     inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
     system "./configure", "--prefix=#{prefix}"
