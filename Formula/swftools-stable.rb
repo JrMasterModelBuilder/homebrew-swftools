@@ -28,6 +28,11 @@ class SwftoolsStable < Formula
     inreplace "lib/as3/registry.h" do |s|
       s.gsub! /^classinfo_t voidclass;/, "// classinfo_t voidclass;"
     end
+    inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
+    inreplace "src/swfc-feedback.h", "int line;", "extern int line;"
+    inreplace "src/swfc-feedback.h", "int column;", "extern int column;"
+    inreplace "src/swfc-feedback.h", "void (*cleanUp)();", "extern void (*cleanUp)();"
+    inreplace "src/swfc-feedback.c", "void syntaxerror", "char* filename = NULL;\nint line = 0;\nint column = 0;\nvoid (*cleanUp)() = NULL;\n\nvoid syntaxerror"
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(sname))", "int giferr; if ((gft = DGifOpenFileName(sname, &giferr))"
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(s))", "int giferr; if ((gft = DGifOpenFileName(s, &giferr))"
     inreplace "src/gif2swf.c", "DGifCloseFile(gft);", "int giferr2; DGifCloseFile(gft, &giferr2);"
