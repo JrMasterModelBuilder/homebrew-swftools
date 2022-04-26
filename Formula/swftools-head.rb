@@ -19,6 +19,9 @@ class SwftoolsHead < Formula
     inreplace "configure", "$CPPFLAGS -I /usr/", "$CPPFLAGS -I/usr/"
     inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
     inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
+    ENV["PYTHON_LIB"] = "/dev/null"
+    ENV["PYTHON_INCLUDES"] = "/dev/null"
+    ENV["RUBY"] = "/dev/null"
     system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
       system "perl", "inject-xpdf.pl", "xpdf-3.02.tar.gz"
