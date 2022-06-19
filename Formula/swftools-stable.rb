@@ -1,7 +1,7 @@
 class SwftoolsStable < Formula
   desc "SWF manipulation and generation tools"
   homepage "http://www.swftools.org/"
-  url "http://www.swftools.org/swftools-0.9.2.tar.gz"
+  url "https://github.com/JrMasterModelBuilder/homebrew-swftools/releases/download/sources/swftools-0.9.2.tar.gz"
   version "0.9.2"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
 
