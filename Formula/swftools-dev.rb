@@ -10,9 +10,9 @@ class SwftoolsDev < Formula
     regex(/href=.*?swftools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "giflib"
-  depends_on "fontconfig"
   depends_on "jpeg"
   depends_on "lame"
 

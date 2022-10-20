@@ -3,9 +3,9 @@ class SwftoolsHead < Formula
   homepage "http://www.swftools.org/"
   head "https://github.com/matthiaskramm/swftools.git"
 
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "giflib"
-  depends_on "fontconfig"
   depends_on "jpeg"
   depends_on "lame"
 
