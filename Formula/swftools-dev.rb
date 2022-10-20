@@ -12,8 +12,8 @@ class SwftoolsDev < Formula
 
   depends_on "freetype"
   depends_on "giflib"
-  depends_on "jpeg"
   depends_on "fontconfig"
+  depends_on "jpeg"
   depends_on "lame"
 
   conflicts_with "swftools", because: "homebrew version (missing features)"
