@@ -27,9 +27,6 @@ jobs:
       - name: Tap Link
         run: ln -s "$PWD" "$(brew --repo)/Library/Taps/github/homebrew-test"
 
-      - name: Taps
-        run: brew tap
-
       - name: Info
         run: brew info "github/test/${{ matrix.config.name }}"
 
