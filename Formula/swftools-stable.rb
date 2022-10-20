@@ -10,15 +10,15 @@ class SwftoolsStable < Formula
     regex(/href=.*?swftools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  conflicts_with "swftools", because: "Homebrew version (missing features)"
-  conflicts_with "swftools-dev", because: "Development snapshot"
-  conflicts_with "swftools-head", because: "HEAD version"
-
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
-  depends_on "lame"
   depends_on "fontconfig"
+  depends_on "lame"
+
+  conflicts_with "swftools", because: "homebrew version (missing features)"
+  conflicts_with "swftools-dev", because: "development snapshot"
+  conflicts_with "swftools-head", because: "head version"
 
   def install
     inreplace "configure", "fftw_malloc", "fftwf_malloc"
@@ -28,7 +28,7 @@ class SwftoolsStable < Formula
     inreplace "lib/pdf/xpdf/GlobalParams.cc", "if(pos2>=0)", "if(pos2>=(char *)0)"
     inreplace "lib/jpeg.c", "#define HAVE_BOOLEAN", "#define TRUE (1==1)\n#define FALSE (!TRUE)\n#define HAVE_BOOLEAN"
     inreplace "lib/as3/registry.h" do |s|
-      s.gsub! /^classinfo_t voidclass;/, "// classinfo_t voidclass;"
+      s.gsub!(/^classinfo_t voidclass;/, "// classinfo_t voidclass;")
     end
     inreplace "lib/gfxpoly/poly.h", "type_t point_type;", "extern type_t point_type;"
     inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
@@ -46,9 +46,9 @@ class SwftoolsStable < Formula
     inreplace "src/gif2swf.c", "if ((gft = DGifOpenFileName(s))", "int giferr; if ((gft = DGifOpenFileName(s, &giferr))"
     inreplace "src/gif2swf.c", "DGifCloseFile(gft);", "int giferr2; DGifCloseFile(gft, &giferr2);"
     inreplace "src/gif2swf.c", "#define MAX_INPUT_FILES", "void PrintGifError(void) { int ret; fprintf(stderr, \"GIF-LIB: %s\\n\", GifErrorString(ret)); }\n#define MAX_INPUT_FILES"
-    inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
-    inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
-    inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
+    inreplace "configure", "/usr/include/fontconfig", "#{Formula["fontconfig"].opt_include}/fontconfig"
+    inreplace "configure", "/usr/include/lame", "#{Formula["lame"].opt_include}/lame"
+    inreplace "configure", "/usr/local/include/lame", "#{Formula["lame"].opt_include}/lame"
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"

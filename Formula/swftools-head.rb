@@ -3,22 +3,22 @@ class SwftoolsHead < Formula
   homepage "http://www.swftools.org/"
   head "https://github.com/matthiaskramm/swftools.git"
 
-  conflicts_with "swftools", because: "Homebrew version (missing features)"
-  conflicts_with "swftools-stable", because: "Stable version"
-  conflicts_with "swftools-dev", because: "Development snapshot"
-
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
-  depends_on "lame"
   depends_on "fontconfig"
+  depends_on "lame"
+
+  conflicts_with "swftools", because: "homebrew version (missing features)"
+  conflicts_with "swftools-stable", because: "stable version"
+  conflicts_with "swftools-dev", because: "development snapshot"
 
   def install
     rm_rf "lib/lame"
-    inreplace "configure", "/usr/include/fontconfig", "#{Formula['fontconfig'].opt_include}/fontconfig"
+    inreplace "configure", "/usr/include/fontconfig", "#{Formula["fontconfig"].opt_include}/fontconfig"
     inreplace "configure", "$CPPFLAGS -I /usr/", "$CPPFLAGS -I/usr/"
-    inreplace "configure", "/usr/include/lame", "#{Formula['lame'].opt_include}/lame"
-    inreplace "configure", "/usr/local/include/lame", "#{Formula['lame'].opt_include}/lame"
+    inreplace "configure", "/usr/include/lame", "#{Formula["lame"].opt_include}/lame"
+    inreplace "configure", "/usr/local/include/lame", "#{Formula["lame"].opt_include}/lame"
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
