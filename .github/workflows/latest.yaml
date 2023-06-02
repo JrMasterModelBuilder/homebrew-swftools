@@ -16,20 +16,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check Latest Download
-        run: |
-          pagehash="$(curl -f -L -s 'http://www.swftools.org/download.html' | shasum -b | cut -d' ' -f1)"
-          if [[ "${pagehash}" != 'd092ddf300e7d5a0bdc663bcd7d849e428c08876' ]]; then
-            echo "Download page has changed. New version?"
-            exit 1
-          fi
+        run: ./test/latest-download.sh
 
       - name: Check Latest HEAD
-        run: |
-          commit="$(curl -f -L -s 'https://github.com/matthiaskramm/swftools/commits/master' | egrep -o '/matthiaskramm/swftools/commit/[0-9a-f]+' | head -n 1 | grep -o '[^/]*$')"
-          if [[ "${commit}" != '772e55a271f66818b06c6e8c9b839befa51248f4' ]]; then
-            echo "HEAD of master changed: ${commit}"
-            exit 1
-          fi
+        run: ./test/latest-head.sh
 
       - name: Keep Alive
         uses: gautamkrishnar/keepalive-workflow@v1
