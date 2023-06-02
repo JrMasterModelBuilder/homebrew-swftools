@@ -1,0 +1,31 @@
+name: Latest
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    if: github.repository == 'JrMasterModelBuilder/homebrew-swftools'
+
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Check Latest
+        run: |
+          pagehash="$(curl -f -L -s 'http://www.swftools.org/download.html' | shasum -b | cut -d' ' -f1)"
+          if [[ "${pagehash}" != 'd092ddf300e7d5a0bdc663bcd7d849e428c08876' ]]; then
+            echo "Download page has changed. New version?"
+            exit 1
+          fi
+
+      - name: Keep Alive
+        uses: gautamkrishnar/keepalive-workflow@v1
+        with:
+          commit_message: ${{ env.KA_COMMIT_MESSAGE }}
+          committer_username: ${{ env.KA_COMMIT_USER }}
+          committer_email: ${{ secrets.KA_COMMIT_EMAIL }}
