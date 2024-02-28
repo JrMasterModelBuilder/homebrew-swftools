@@ -34,5 +34,5 @@ $ brew install swftools-dev
 ## Install Head
 
 ```
-$ brew install swftools-head
+$ brew install --HEAD swftools-head
 ```
