@@ -15,24 +15,24 @@ Homebrew tap for swftools
 
 ## Tap
 
-```
-$ brew tap JrMasterModelBuilder/swftools
+```sh
+brew tap JrMasterModelBuilder/swftools
 ```
 
 ## Install Stable
 
-```
-$ brew install swftools-stable
+```sh
+brew install swftools-stable
 ```
 
 ## Install Dev
 
-```
-$ brew install swftools-dev
+```sh
+brew install swftools-dev
 ```
 
 ## Install Head
 
-```
-$ brew install --HEAD swftools-head
+```sh
+brew install --HEAD swftools-head
 ```
