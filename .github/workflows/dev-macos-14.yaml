@@ -10,7 +10,6 @@ jobs:
           - host: macos-14
             name: swftools-dev
             test: 1
-            args: ''
 
     runs-on: ${{ matrix.config.host }}
 

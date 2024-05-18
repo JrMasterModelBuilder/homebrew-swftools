@@ -10,7 +10,6 @@ jobs:
           - host: ubuntu-20.04
             name: swftools-dev
             test: 1
-            args: ''
 
     runs-on: ${{ matrix.config.host }}
 
