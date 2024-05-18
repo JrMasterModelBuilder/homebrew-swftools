@@ -4,6 +4,7 @@ class SwftoolsHead < Formula
   url "https://github.com/JrMasterModelBuilder/homebrew-swftools/releases/download/sources/swftools-master-2021-12-16-772e55a271f66818b06c6e8c9b839befa51248f4.tar.gz"
   version "2021-12-16"
   sha256 "7e4394805dac36f3facf9defa21e0277e942b43b1b1ccd5f2d0e4859f63b5522"
+  revision 1
 
   depends_on "fontconfig"
   depends_on "freetype"
