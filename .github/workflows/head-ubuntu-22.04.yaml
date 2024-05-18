@@ -10,7 +10,6 @@ jobs:
           - host: ubuntu-22.04
             name: swftools-head
             test: 1
-            args: '--HEAD'
 
     runs-on: ${{ matrix.config.host }}
 
