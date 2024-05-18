@@ -30,6 +30,8 @@ class SwftoolsStable < Formula
     inreplace "lib/as3/registry.h" do |s|
       s.gsub!(/^classinfo_t voidclass;/, "// classinfo_t voidclass;")
     end
+    inreplace "lib/as3/builtin.c", '{type: 8, &flash_utils_flash_proxy_constant_ns}', '{type: 8, ns: &flash_utils_flash_proxy_constant_ns}'
+    inreplace "lib/as3/builtin.c", '{type: 8, &_AS3_constant_ns}', '{type: 8, ns: &_AS3_constant_ns}'
     inreplace "lib/gfxpoly/poly.h", "type_t point_type;", "extern type_t point_type;"
     inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
     inreplace "src/swfc-feedback.h", "int line;", "extern int line;"
