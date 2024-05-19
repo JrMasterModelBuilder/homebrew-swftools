@@ -11,11 +11,11 @@ commit="$(git rev-parse HEAD)"
 popd > /dev/null
 rm -rf "${tmpclone}"
 
-expected='772e55a271f66818b06c6e8c9b839befa51248f4'
+expected='c6a18ab0658286f98d6ed2b3d0419058e86a14a0'
 
 if [[ "${commit}" == "${expected}" ]]; then
 	echo 'HEAD commit on master unchanged'
 else
-	echo 'HEAD commit on master changed'
+	echo "HEAD commit on master changed: ${commit}"
 	exit 1
 fi
