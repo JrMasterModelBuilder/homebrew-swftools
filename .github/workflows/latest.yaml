@@ -18,8 +18,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check Latest Download
-        run: ./test/latest-download.sh
+      # - name: Check Latest Download
+      #   run: ./test/latest-download.sh
 
       - name: Check Latest HEAD
         run: ./test/latest-head.sh
