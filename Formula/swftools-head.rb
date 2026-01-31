@@ -25,13 +25,7 @@ class SwftoolsHead < Formula
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
-    args = ["--prefix=#{prefix}"]
-    on_linux do
-      on_arm do
-        args << "--build=aarch64-linux-gnu"
-      end
-    end
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
     chdir "lib/pdf" do
       system "perl", "inject-xpdf.pl", "xpdf-3.02.tar.gz"
     end

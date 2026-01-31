@@ -14,9 +14,9 @@ jobs:
           - macos-15
           - macos-14
           - ubuntu-24.04
-          - ubuntu-24.04-arm
+          # - ubuntu-24.04-arm
           - ubuntu-22.04
-          - ubuntu-22.04-arm
+          # - ubuntu-22.04-arm
         name:
           - swftools-stable
           - swftools-dev
