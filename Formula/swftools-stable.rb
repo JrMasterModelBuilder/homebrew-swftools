@@ -77,7 +77,13 @@ class SwftoolsStable < Formula
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    on_linux do
+      on_arm do
+        args << "--build=aarch64-linux-gnu"
+      end
+    end
+    system "./configure", *args
     system "make"
     system "make", "install"
     bin.install "src/ttftool"
