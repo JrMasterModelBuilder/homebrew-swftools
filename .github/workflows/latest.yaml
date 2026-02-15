@@ -23,6 +23,8 @@ jobs:
 
       - name: Check Latest HEAD
         run: ./test/latest-head.sh
+        env:
+          SWFTOOLS_HEAD: ${{ vars.SWFTOOLS_HEAD }}
 
       - name: Keep Alive
         uses: liskin/gh-workflow-keepalive@v1
