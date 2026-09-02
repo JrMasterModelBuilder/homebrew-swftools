@@ -79,7 +79,7 @@ class SwftoolsDev < Formula
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
-    ENV.append_to_cflags "-std=gnu17"
+    ENV.append "CFLAGS", "-std=gnu17"
     ENV.append_to_cflags "-DYY_USE_PROTOS"
     ENV.append_to_cflags "-fcommon" if OS.linux?
     args = []
