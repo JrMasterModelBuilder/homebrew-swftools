@@ -8,6 +8,7 @@ Homebrew tap for swftools
 
 ```sh
 brew tap JrMasterModelBuilder/swftools
+brew trust JrMasterModelBuilder/swftools
 ```
 
 ## Install Stable
