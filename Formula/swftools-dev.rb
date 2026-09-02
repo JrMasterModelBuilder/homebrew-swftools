@@ -38,10 +38,6 @@ class SwftoolsDev < Formula
     inreplace "lib/as3/parser.tab.c", 'constant_new_false((yyvsp[(1) - (1)].token))', 'constant_new_false()'
     inreplace "lib/as3/parser.tab.c", 'constant_new_null((yyvsp[(1) - (1)].token))', 'constant_new_null()'
     inreplace "lib/as3/parser.tab.c", 'constant_new_undefined((yyvsp[(1) - (1)].token))', 'constant_new_undefined()'
-    inreplace "lib/as3/parser.y", 'constant_new_true($1)', 'constant_new_true()'
-    inreplace "lib/as3/parser.y", 'constant_new_false($1)', 'constant_new_false()'
-    inreplace "lib/as3/parser.y", 'constant_new_null($1)', 'constant_new_null()'
-    inreplace "lib/as3/parser.y", 'constant_new_undefined($1)', 'constant_new_undefined()'
     inreplace "lib/gfxpoly/poly.h", "type_t point_type;", "extern type_t point_type;"
     inreplace "lib/devices/record.c", "#include \"record.h\"", "#include \"record.h\"\n#include \"dummy.h\""
     inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
