@@ -25,6 +25,7 @@ class SwftoolsHead < Formula
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
+    ENV.append "CFLAGS", "-DYY_USE_PROTOS"
     args = []
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     system "./configure", *args, *std_configure_args
