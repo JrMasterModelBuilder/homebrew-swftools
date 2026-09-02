@@ -22,8 +22,8 @@ class SwftoolsHead < Formula
     inreplace "configure", "$CPPFLAGS -I /usr/", "$CPPFLAGS -I/usr/"
     inreplace "configure", "/usr/include/lame", "#{Formula["lame"].opt_include}/lame"
     inreplace "configure", "/usr/local/include/lame", "#{Formula["lame"].opt_include}/lame"
-    inreplace "lib/as3/pool.c", 'constant_t* constant_clone();', 'constant_t* constant_clone(constant_t*other);'
-    inreplace "lib/as3/pool.c", 'void pool_optimize();', 'void pool_optimize(pool_t*p);'
+    inreplace "lib/as3/pool.h", 'constant_t* constant_clone();', 'constant_t* constant_clone(constant_t*other);'
+    inreplace "lib/as3/pool.h", 'void pool_optimize();', 'void pool_optimize(pool_t*p);'
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
