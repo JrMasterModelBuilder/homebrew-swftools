@@ -26,6 +26,14 @@ class SwftoolsHead < Formula
     inreplace "lib/as3/pool.h", 'void pool_optimize();', 'void pool_optimize(pool_t*p);'
     inreplace "lib/as3/registry.h", 'char registry_isfunctionclass();', 'char registry_isfunctionclass(classinfo_t*c);'
     inreplace "lib/as3/registry.h", 'char registry_isclassclass();', 'char registry_isclassclass(classinfo_t*c);'
+    inreplace "lib/as3/parser.tab.c", 'constant_new_true((yyvsp[(1) - (1)].token))', 'constant_new_true()'
+    inreplace "lib/as3/parser.tab.c", 'constant_new_false((yyvsp[(1) - (1)].token))', 'constant_new_false()'
+    inreplace "lib/as3/parser.tab.c", 'constant_new_null((yyvsp[(1) - (1)].token))', 'constant_new_null()'
+    inreplace "lib/as3/parser.tab.c", 'constant_new_undefined((yyvsp[(1) - (1)].token))', 'constant_new_undefined()'
+    inreplace "lib/as3/parser.y", 'constant_new_true($1)', 'constant_new_true()'
+    inreplace "lib/as3/parser.y", 'constant_new_false($1)', 'constant_new_false()'
+    inreplace "lib/as3/parser.y", 'constant_new_null($1)', 'constant_new_null()'
+    inreplace "lib/as3/parser.y", 'constant_new_undefined($1)', 'constant_new_undefined()'
     ENV["PYTHON_LIB"] = "/dev/null"
     ENV["PYTHON_INCLUDES"] = "/dev/null"
     ENV["RUBY"] = "/dev/null"
