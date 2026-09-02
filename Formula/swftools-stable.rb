@@ -35,6 +35,8 @@ class SwftoolsStable < Formula
     inreplace "lib/as3/builtin.c", '{type: 8, &_AS3_constant_ns}', '{type: 8, ns: &_AS3_constant_ns}'
     inreplace "lib/as3/pool.h", 'constant_t* constant_clone();', 'constant_t* constant_clone(constant_t*other);'
     inreplace "lib/as3/pool.h", 'void pool_optimize();', 'void pool_optimize(pool_t*p);'
+    inreplace "lib/as3/registry.h", 'char registry_isfunctionclass();', 'char registry_isfunctionclass(classinfo_t*c);'
+    inreplace "lib/as3/registry.h", 'char registry_isclassclass();', 'char registry_isclassclass(classinfo_t*c);'
     inreplace "lib/gfxpoly/poly.h", "type_t point_type;", "extern type_t point_type;"
     inreplace "src/swfc-feedback.h", "char* filename;", "extern char* filename;"
     inreplace "src/swfc-feedback.h", "int line;", "extern int line;"
